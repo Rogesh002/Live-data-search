@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Data search</title>
+</head>
+<body>
+    <div class="container mt-5 mb-5">
+        <div class="text-primary text-center"><b>live Data search</b>
+            <div class="mt-3 mb-3">
+                <div class="card">
+                    <div class="card-header">Aeroplane Details</div>
+                        <div class="card-body">
+                             <div class = "mb-3"></div>
+                                <input type="text" id="search" placeholder="search..." class="form-control" autocomplete="off">
+                                <thead>
+                                    <th>Id</th>
+                                    <th>Plane name</th>
+                                    <th>city name</th>
+                                    <th>state name</th>
+                                    <th>country name</th>
+                                </thead>
+                                <tbody id = "result">
+
+                                </tbody>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>
+<script type="text/javascript">
+ const searchInput = document.querySelector("#search");
+
+ const result_body = document.querySelector('#result');
+
+ load_data(;)
+
+ function load_data(query=" ")
+ {
+
+    const request = new XMLHttpRequest();
+    request.open("GET",`/search?q=${query}`);
+    request.onload =() =>{
+        const result = JSON.parse(request.responseText);
+
+        let html ="";
+
+        if(result.length>0){
+
+            result.forEach(element => {
+                html+=`
+                <tr>
+                    <td>`result.id`</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                `
+            });
+        }else{
+            html +=`
+            <tr>
+                <td colspan="5" class="text-center">No data found</td>
+                </tr>`
+        }
+
+        result_body.innerHTML=html;
+    }
+    request.send(); 
+}
+
+</script>
