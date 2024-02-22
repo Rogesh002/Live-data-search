@@ -6,6 +6,9 @@
     <title>Live Data Search</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Qt9Hug5NfnQDGMoaQYXN1+PiQvda7poO7/6kEiFsXUzX24K6j1o8qBHDqyGmOyZ5" crossorigin="anonymous">
     <style>
+        table{
+            width : 80 px;
+        }
         table, th, td {
           border: 1px solid;
           border-collapse: collapse;
@@ -31,7 +34,7 @@
         <div class="card-header">Aeroplane Details</div>
         <div class="card-body">
             <input type="text" id="search" placeholder="Search..." class="form-control mb-3" autocomplete="off">
-            <table class="table">
+            <table class="table" style="width:100%">
                 <thead>
                     <tr>
                         <th>airport_code</th>
